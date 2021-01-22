@@ -20,7 +20,7 @@ public class Yatopia {
         if (unsafeYatopia()) {
             logger.log(Level.SEVERE, "************************************************************");
             logger.log(Level.SEVERE, "* You are running a server fork that is known to be extremely dangerous and lead to data loss");
-            logger.log(Level.SEVERE, "* due to an extremely violatile patch set.");
+            logger.log(Level.SEVERE, "* due to an extremely volatile patch set.");
             logger.log(Level.SEVERE, "*");
             logger.log(Level.SEVERE, "* It is strongly recommended you switch to a more stable,");
             logger.log(Level.SEVERE, "* high-performing server software, like Paper or Tuinity.");
