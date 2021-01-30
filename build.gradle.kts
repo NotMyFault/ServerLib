@@ -3,7 +3,7 @@ plugins {
     `maven-publish`
 }
 
-group = "de.notmyfault"
+group = "org.incendo"
 version = "1.0.2"
 
 tasks {
@@ -28,9 +28,9 @@ publishing {
                 }
 
                 scm {
-                    url.set("https://github.com/NotMyFault/ServerLib")
-                    connection.set("scm:https://NotMyFault@github.com/NotMyFault/ServerLib.git")
-                    developerConnection.set("scm:git://github.com/NotMyFault/ServerLib.git")
+                    url.set("https://github.com/Incendo/ServerLib")
+                    connection.set("scm:https://Incendo@github.com/Incendo/ServerLib.git")
+                    developerConnection.set("scm:git://github.com/Incendo/ServerLib.git")
                 }
             }
         }

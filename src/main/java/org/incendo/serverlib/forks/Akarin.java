@@ -1,26 +1,26 @@
-package de.notmyfault.serverlib.forks;
+package org.incendo.serverlib.forks;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AirplaneLiteChunkConcurrency {
+public class Akarin {
 
-    private final static java.util.logging.Logger logger = Logger.getLogger(AirplaneLiteChunkConcurrency.class.getName());
+    private final static java.util.logging.Logger logger = Logger.getLogger(Akarin.class.getName());
 
-    private static boolean unsafeAirplaneLiteChunkConcurrency() {
+    private static boolean unsafeAkarin() {
         try {
-            Class.forName("gg.airplane.structs.ConcLong2ObjectOpenHashMap");
+            Class.forName("io.akarin.server.Config");
             return true;
         } catch (ClassNotFoundException ignored) {
         }
         return false;
     }
 
-    public static void isAirplaneLiteChunkConcurrency() {
-        if (unsafeAirplaneLiteChunkConcurrency()) {
+    public static void isAkarin() {
+        if (unsafeAkarin()) {
             logger.log(Level.SEVERE, "************************************************************");
             logger.log(Level.SEVERE, "* You are running a server fork that is known to be extremely dangerous and lead to data loss");
-            logger.log(Level.SEVERE, "* due to attempting unsafe chunk concurrency.");
+            logger.log(Level.SEVERE, "* due to a very dangerous patch history.");
             logger.log(Level.SEVERE, "*");
             logger.log(Level.SEVERE, "* It is strongly recommended you switch to a more stable,");
             logger.log(Level.SEVERE, "* high-performing server software, like Paper or Tuinity.");
