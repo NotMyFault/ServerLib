@@ -1,4 +1,4 @@
-package de.notmyfault.serverlib.forks;
+package de.notmyfault.serverlib.hybrids;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -7,7 +7,7 @@ public class Forge {
 
     private final static java.util.logging.Logger logger = Logger.getLogger(Forge.class.getName());
 
-    private static boolean unsafeForge() {
+    private static boolean incompatibleForge() {
         try {
             Class.forName("net.minecraftforge.common.MinecraftForge");
             return true;
@@ -17,7 +17,7 @@ public class Forge {
     }
 
     public static void isForge() {
-        if (unsafeForge()) {
+        if (incompatibleForge()) {
             logger.log(Level.SEVERE, "************************************************************");
             logger.log(Level.SEVERE, "* You are running a server that does not properly support Bukkit plugins.");
             logger.log(Level.SEVERE, "*");
