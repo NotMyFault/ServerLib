@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("de.notmyfault:serverlib:1.0.0")
+    implementation("de.notmyfault:serverlib:1.0.1")
 }
 ```
 
@@ -25,7 +25,7 @@ dependencies {
 <dependency>  
  <groupId>de.notmyfault</groupId>
  <artifactId>serverlib</artifactId>
- <version>1.0.0</version>
+ <version>1.0.1</version>
 </dependency>
 ``` 
 
