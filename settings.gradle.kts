@@ -1,1 +1,1 @@
-rootProject.name = "ServerLib"
+rootProject.name = "serverlib"
