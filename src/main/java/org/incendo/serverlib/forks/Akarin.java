@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 
 public class Akarin {
 
+    // https://github.com/Akarin-project/Akarin
+
     private final static java.util.logging.Logger logger = Logger.getLogger(Akarin.class.getName());
 
     private static boolean unsafeAkarin() {

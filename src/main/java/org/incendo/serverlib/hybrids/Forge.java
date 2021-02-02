@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 
 public class Forge {
 
+    // https://github.com/MinecraftForge/MinecraftForge
+
     private final static java.util.logging.Logger logger = Logger.getLogger(Forge.class.getName());
 
     private static boolean incompatibleForge() {

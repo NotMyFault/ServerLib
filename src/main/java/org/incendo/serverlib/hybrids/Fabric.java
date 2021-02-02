@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 
 public class Fabric {
 
+    // https://github.com/FabricMC/fabric
+
     private final static java.util.logging.Logger logger = Logger.getLogger(Fabric.class.getName());
 
     private static boolean incompatibleFabric() {

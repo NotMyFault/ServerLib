@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 
 public class Yatopia {
 
+    // https://github.com/YatopiaMC/Yatopia
+
     private final static Logger logger = Logger.getLogger(Yatopia.class.getName());
 
     private static boolean unsafeYatopia() {

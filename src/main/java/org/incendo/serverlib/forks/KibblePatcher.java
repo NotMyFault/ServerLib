@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 
 public class KibblePatcher {
 
+    // https://github.com/KibbleLands/KibblePatcher
+
     private final static java.util.logging.Logger logger = Logger.getLogger(KibblePatcher.class.getName());
 
     private static boolean unsafeKibblePatcher() {
