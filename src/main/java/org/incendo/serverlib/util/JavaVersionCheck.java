@@ -39,8 +39,6 @@ public class JavaVersionCheck {
             logger.log(Level.INFO, "*");
             logger.log(Level.INFO, "* Current Java version: {}", System.getProperty("java.version"));
             logger.log(Level.INFO, "*");
-            logger.log(Level.INFO, "* Check this gist for more information:");
-            logger.log(Level.INFO, "https://git.io/JtEJA");
             logger.log(Level.INFO, "************************************************************");
         }
     }
