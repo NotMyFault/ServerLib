@@ -26,7 +26,7 @@ public class JavaVersionCheck {
         }
     }
 
-    public static void checkJava11() {
+    public static void checkJavaEleven() {
         if (javaVersion() < 11) {
             logger.log(Level.INFO, "************************************************************");
             logger.log(Level.INFO, "* WARNING - YOU ARE RUNNING AN OUTDATED VERSION OF JAVA.");
@@ -37,13 +37,12 @@ public class JavaVersionCheck {
             logger.log(Level.INFO, "* is released, support for versions of Java prior to 11 will");
             logger.log(Level.INFO, "* be dropped.");
             logger.log(Level.INFO, "*");
-            logger.log(Level.INFO, "* Current Java version: {}", System.getProperty("java.version"));
-            logger.log(Level.INFO, "*");
+            logger.log(Level.INFO, "* Current Java version: " + System.getProperty("java.runtime.version"));
             logger.log(Level.INFO, "************************************************************");
         }
     }
 
-    public static void checkJava15() {
+    public static void checkJavaFifteen() {
         if (javaVersion() >= 15) {
             logger.log(Level.INFO, "************************************************************");
             logger.log(Level.INFO, "* Within Java 15 and the removal of the Nashorn scripting engine,");
@@ -51,8 +50,7 @@ public class JavaVersionCheck {
             logger.log(Level.INFO, "* Until a suitable workaround has been added, stick to Java 11");
             logger.log(Level.INFO, "* for long term support.");
             logger.log(Level.INFO, "*");
-            logger.log(Level.INFO, "* Current Java version: {}", System.getProperty("java.version"));
-            logger.log(Level.INFO, "*");
+            logger.log(Level.INFO, "* Current Java version: " + System.getProperty("java.runtime.version"));
             logger.log(Level.INFO, "************************************************************");
         }
     }

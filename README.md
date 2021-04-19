@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("de.notmyfault:serverlib:1.0.1")
+    implementation("org.incendo.serverlib:ServerLib:2.0.0")
 }
 ```
 
@@ -23,9 +23,9 @@ dependencies {
 </repository>
 
 <dependency>  
- <groupId>de.notmyfault</groupId>
- <artifactId>serverlib</artifactId>
- <version>1.0.1</version>
+ <groupId>org.incendo.serverlib</groupId>
+ <artifactId>ServerLib</artifactId>
+ <version>2.0.0</version>
 </dependency>
 ``` 
 

@@ -3,14 +3,12 @@ plugins {
     `maven-publish`
 }
 
-group = "org.incendo"
-version = "1.0.2"
+group = "org.incendo.serverlib"
+version = "2.0.0"
 
-tasks {
-    compileJava {
-        sourceCompatibility = JavaVersion.VERSION_1_8.toString()
-        targetCompatibility = sourceCompatibility
-    }
+configure<JavaPluginConvention> {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = sourceCompatibility
 }
 
 publishing {
