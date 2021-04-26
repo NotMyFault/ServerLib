@@ -11,6 +11,14 @@ configure<JavaPluginConvention> {
     targetCompatibility = sourceCompatibility
 }
 
+repositories {
+    maven("https://papermc.io/repo/repository/maven-public/")
+}
+
+dependencies {
+    compileOnly("com.destroystokyo.paper", "paper-api", "1.16.5-R0.1-SNAPSHOT")
+}
+
 publishing {
     publications {
         create<MavenPublication>("maven") {
