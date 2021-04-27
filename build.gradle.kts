@@ -4,11 +4,19 @@ plugins {
 }
 
 group = "org.incendo.serverlib"
-version = "2.0.0"
+version = "2.1.0"
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = sourceCompatibility
+}
+
+repositories {
+    maven("https://papermc.io/repo/repository/maven-public/")
+}
+
+dependencies {
+    compileOnly("com.destroystokyo.paper", "paper-api", "1.16.5-R0.1-SNAPSHOT")
 }
 
 publishing {

@@ -3,6 +3,8 @@ package org.incendo.serverlib.forks;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.incendo.serverlib.util.PackageChecker.packageExists;
+
 public class Yatopia {
 
     // https://github.com/YatopiaMC/Yatopia
@@ -10,12 +12,9 @@ public class Yatopia {
     private final static Logger logger = Logger.getLogger(Yatopia.class.getName());
 
     private static boolean unsafeYatopia() {
-        try {
-            Class.forName("org.yatopiamc.yatopia.server.YatopiaConfig");
-            return true;
-        } catch (ClassNotFoundException ignored) {
-        }
-        return false;
+        return packageExists("org.yatopiamc")
+                || packageExists("net.yatopia")
+                || packageExists("dev.tr7zw.yatopia");
     }
 
     public static void isYatopia() {
