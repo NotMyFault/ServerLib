@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.incendo.serverlib:ServerLib:2.0.0")
+    implementation("org.incendo.serverlib:ServerLib:2.1.0")
 }
 ```
 
@@ -25,7 +25,7 @@ dependencies {
 <dependency>  
  <groupId>org.incendo.serverlib</groupId>
  <artifactId>ServerLib</artifactId>
- <version>2.0.0</version>
+ <version>2.1.0</version>
 </dependency>
 ``` 
 
