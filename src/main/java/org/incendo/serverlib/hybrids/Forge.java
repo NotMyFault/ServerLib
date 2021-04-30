@@ -9,7 +9,7 @@ public class Forge {
 
     private final static java.util.logging.Logger logger = Logger.getLogger(Forge.class.getName());
 
-    private static boolean incompatibleForge() {
+    public static boolean incompatibleForge() {
         try {
             Class.forName("net.minecraftforge.common.MinecraftForge");
             return true;

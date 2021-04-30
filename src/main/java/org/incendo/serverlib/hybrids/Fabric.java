@@ -9,7 +9,7 @@ public class Fabric {
 
     private final static java.util.logging.Logger logger = Logger.getLogger(Fabric.class.getName());
 
-    private static boolean incompatibleFabric() {
+    public static boolean incompatibleFabric() {
         try {
             Class.forName("net.fabricmc.loader.launch.knot.KnotServer");
             return true;

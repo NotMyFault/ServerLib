@@ -11,7 +11,7 @@ public class Yatopia {
 
     private final static Logger logger = Logger.getLogger(Yatopia.class.getName());
 
-    private static boolean unsafeYatopia() {
+    public static boolean unsafeYatopia() {
         return packageExists("org.yatopiamc")
                 || packageExists("net.yatopia")
                 || packageExists("dev.tr7zw.yatopia");

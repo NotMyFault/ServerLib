@@ -9,7 +9,7 @@ public class Akarin {
 
     private final static java.util.logging.Logger logger = Logger.getLogger(Akarin.class.getName());
 
-    private static boolean unsafeAkarin() {
+    public static boolean unsafeAkarin() {
         try {
             Class.forName("io.akarin.server.Config");
             return true;

@@ -9,7 +9,7 @@ public class KibblePatcher {
 
     private final static java.util.logging.Logger logger = Logger.getLogger(KibblePatcher.class.getName());
 
-    private static boolean unsafeKibblePatcher() {
+    public static boolean unsafeKibblePatcher() {
         try {
             Class.forName("net.kibblelands.server.FastMath");
             return true;
