@@ -26,16 +26,15 @@ public class JavaVersionCheck {
         }
     }
 
-    public static void checkJavaEleven() {
-        if (javaVersion() < 11) {
+    public static void checkJavaSixteen() {
+        if (javaVersion() < 16) {
             logger.log(Level.INFO, "************************************************************");
             logger.log(Level.INFO, "* WARNING - YOU ARE RUNNING AN OUTDATED VERSION OF JAVA.");
-            logger.log(Level.INFO, "* THIS PLUGIN WILL STOP BEING COMPATIBLE WITH THIS VERSION OF");
+            logger.log(Level.INFO, "* MINECRAFT WILL STOP BEING COMPATIBLE WITH THIS VERSION OF");
             logger.log(Level.INFO, "* JAVA WHEN MINECRAFT 1.17 IS RELEASED.");
             logger.log(Level.INFO, "*");
-            logger.log(Level.INFO, "* Please update the version of Java to 11. When Minecraft 1.17");
-            logger.log(Level.INFO, "* is released, support for versions of Java prior to 11 will");
-            logger.log(Level.INFO, "* be dropped.");
+            logger.log(Level.INFO, "* Please update the version of Java you use to run this server");
+            logger.log(Level.INFO, "* to at least Java 16. Minecraft 1.17 requires a minimum Java version of 16.");
             logger.log(Level.INFO, "*");
             logger.log(Level.INFO, "* Current Java version: " + System.getProperty("java.runtime.version"));
             logger.log(Level.INFO, "************************************************************");

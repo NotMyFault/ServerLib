@@ -5,7 +5,7 @@ import static org.incendo.serverlib.forks.KibblePatcher.isKibblePatcher;
 import static org.incendo.serverlib.forks.Yatopia.isYatopia;
 import static org.incendo.serverlib.hybrids.Fabric.isFabric;
 import static org.incendo.serverlib.hybrids.Forge.isForge;
-import static org.incendo.serverlib.util.JavaVersionCheck.checkJavaEleven;
+import static org.incendo.serverlib.util.JavaVersionCheck.checkJavaSixteen;
 import static org.incendo.serverlib.util.JavaVersionCheck.checkJavaFifteen;
 
 public class ServerLib {
@@ -19,7 +19,7 @@ public class ServerLib {
     }
 
     public static void checkJavaLTS() {
-        checkJavaEleven();
+        checkJavaSixteen();
     }
     public static void checkJavaMinor() {
         checkJavaFifteen();
