@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "org.incendo.serverlib"
-version = "2.2.0"
+version = "2.2.1-SNAPSHOT"
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
