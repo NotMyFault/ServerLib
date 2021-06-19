@@ -1,35 +1,32 @@
 package org.incendo.serverlib.forks;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.incendo.serverlib.CheckType;
+import org.incendo.serverlib.ClassPresenceCheck;
 
-public class KibblePatcher {
+/**
+ * Checks for the presence of KibblePatcher.
+ * <p>
+ * https://github.com/KibbleLands/KibblePatcher
+ */
+public final class KibblePatcher extends ClassPresenceCheck {
 
-    // https://github.com/KibbleLands/KibblePatcher
+    private static final String FAST_MATH = "net.kibblelands.server.FastMath";
 
-    private final static java.util.logging.Logger logger = Logger.getLogger(KibblePatcher.class.getName());
-
-    private static boolean unsafeKibblePatcher() {
-        try {
-            Class.forName("net.kibblelands.server.FastMath");
-            return true;
-        } catch (ClassNotFoundException ignored) {
-        }
-        return false;
+    public KibblePatcher() {
+        super(CheckType.UNSAFE_FORK, FAST_MATH);
     }
 
-    public static void isKibblePatcher() {
-        if (unsafeKibblePatcher()) {
-            logger.log(Level.SEVERE, "************************************************************");
-            logger.log(Level.SEVERE, "* You are running a server fork that is known to be extremely dangerous and lead to data loss");
-            logger.log(Level.SEVERE, "* due to dangerous byte code editing.");
-            logger.log(Level.SEVERE, "*");
-            logger.log(Level.SEVERE, "* It is strongly recommended you switch to a more stable,");
-            logger.log(Level.SEVERE, "* high-performing server software, like Paper or Tuinity.");
-            logger.log(Level.SEVERE, "*");
-            logger.log(Level.SEVERE, "* By continuing to use this fork you acknowledge you are running an unsupported server version.");
-            logger.log(Level.SEVERE, "************************************************************");
-
-        }
+    @Override
+    public String[] explain() {
+        return new String[]{
+                "You are running a server fork that is known to be extremely dangerous and lead to data loss",
+                "due to dangerous byte code editing.",
+                "",
+                "It is strongly recommended you switch to a more stable,",
+                "high-performing server software, like Paper or Tuinity.",
+                "",
+                "By continuing to use this fork you acknowledge you are running an unsupported server version."
+        };
     }
+
 }

@@ -31,6 +31,11 @@ publishing {
                         id.set("NotMyFault")
                         name.set("NotMyFault")
                     }
+
+                    developer {
+                        id.set("Citymonstret")
+                        name.set("Alexander Söderberg")
+                    }
                 }
 
                 scm {

@@ -1,34 +1,32 @@
 package org.incendo.serverlib.forks;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.incendo.serverlib.CheckType;
+import org.incendo.serverlib.ClassPresenceCheck;
 
-public class Akarin {
+/**
+ * Checks for the presence of Akarin.
+ * <p>
+ * https://github.com/Akarin-project/Akarin
+ */
+public final class Akarin extends ClassPresenceCheck {
 
-    // https://github.com/Akarin-project/Akarin
+    private static final String AKARAIN_CONFIG = "io.akarin.server.Config";
 
-    private final static java.util.logging.Logger logger = Logger.getLogger(Akarin.class.getName());
-
-    private static boolean unsafeAkarin() {
-        try {
-            Class.forName("io.akarin.server.Config");
-            return true;
-        } catch (ClassNotFoundException ignored) {
-        }
-        return false;
+    public Akarin() {
+        super(CheckType.UNSAFE_FORK, AKARAIN_CONFIG);
     }
 
-    public static void isAkarin() {
-        if (unsafeAkarin()) {
-            logger.log(Level.SEVERE, "************************************************************");
-            logger.log(Level.SEVERE, "* You are running a server fork that is known to be extremely dangerous and lead to data loss");
-            logger.log(Level.SEVERE, "* due to a very dangerous patch history.");
-            logger.log(Level.SEVERE, "*");
-            logger.log(Level.SEVERE, "* It is strongly recommended you switch to a more stable,");
-            logger.log(Level.SEVERE, "* high-performing server software, like Paper or Tuinity.");
-            logger.log(Level.SEVERE, "*");
-            logger.log(Level.SEVERE, "* By continuing to use this fork you acknowledge you are running an unsupported server version.");
-            logger.log(Level.SEVERE, "************************************************************");
-        }
+    @Override
+    public String[] explain() {
+        return new String[]{
+                "You are running a server fork that is known to be extremely dangerous and lead to data loss",
+                "due to a very dangerous patch history.",
+                "",
+                "It is strongly recommended you switch to a more stable,",
+                "high-performing server software, like Paper or Tuinity.",
+                "",
+                "By continuing to use this fork you acknowledge you are running an unsupported server version.\""
+        };
     }
+
 }
