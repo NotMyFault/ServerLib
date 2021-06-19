@@ -11,7 +11,15 @@ import org.incendo.serverlib.PackagePresenceCheck;
 public final class Yatopia extends PackagePresenceCheck {
 
     public Yatopia() {
-        super(CheckType.UNSAFE_FORK, "org.yatopiamc", "net.yatopia", "dev.tr7zw.yatopia");
+        super(
+                CheckType.UNSAFE_FORK,
+                "org.yatopiamc",
+                "net.yatopia",
+                "dev.tr7zw.yatopia",
+                "yatopiamc.org",
+                "yatopia.net",
+                "yatopia.tr7zw"
+        );
     }
 
     @Override
