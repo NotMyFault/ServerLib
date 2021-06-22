@@ -2,6 +2,7 @@ package org.incendo.serverlib;
 
 import org.incendo.serverlib.forks.Akarin;
 import org.incendo.serverlib.forks.KibblePatcher;
+import org.incendo.serverlib.forks.Sugarcane;
 import org.incendo.serverlib.forks.Yatopia;
 import org.incendo.serverlib.hybrids.Fabric;
 import org.incendo.serverlib.hybrids.Forge;
@@ -40,6 +41,7 @@ public final class ServerLib {
                 .withCheck(new Akarin())
                 .withCheck(new KibblePatcher())
                 .withCheck(new Yatopia())
+                .withCheck(new Sugarcane())
                 .withCheck(new Fabric())
                 .withCheck(new Forge())
                 .build();

@@ -19,13 +19,17 @@ dependencies {
     compileOnly("com.destroystokyo.paper", "paper-api", "1.16.5-R0.1-SNAPSHOT")
 }
 
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
 publishing {
     publications {
         create<MavenPublication>("maven") {
             from(components["java"])
 
             pom {
-
                 developers {
                     developer {
                         id.set("NotMyFault")
@@ -37,7 +41,6 @@ publishing {
                         name.set("Alexander Söderberg")
                     }
                 }
-
                 scm {
                     url.set("https://github.com/Incendo/ServerLib")
                     connection.set("scm:https://Incendo@github.com/Incendo/ServerLib.git")
@@ -72,3 +75,37 @@ publishing {
         }
     }
 }
+
+val javadocDir = rootDir.resolve("docs").resolve("javadoc").resolve(project.name)
+tasks {
+    named<Delete>("clean") {
+        doFirst {
+            rootDir.resolve("target").deleteRecursively()
+            javadocDir.deleteRecursively()
+        }
+    }
+
+    compileJava {
+        options.compilerArgs.addAll(arrayOf("-Xmaxerrs", "1000"))
+        options.compilerArgs.add("-Xlint:all")
+        for (disabledLint in arrayOf("processing", "path", "fallthrough", "serial"))
+            options.compilerArgs.add("-Xlint:$disabledLint")
+        options.isDeprecation = true
+        options.encoding = "UTF-8"
+    }
+
+    javadoc {
+        val opt = options as StandardJavadocDocletOptions
+        opt.addStringOption("Xdoclint:none", "-quiet")
+        opt.tags(
+                "apiNote:a:API Note:",
+                "implSpec:a:Implementation Requirements:",
+                "implNote:a:Implementation Note:"
+        )
+        opt.destinationDirectory = javadocDir
+    }
+    named("build") {
+        dependsOn(named("javadoc"))
+    }
+}
+
