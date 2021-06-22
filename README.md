@@ -7,11 +7,11 @@ You can add the library to your project:
 **Gradle**
 ```kotlin
 repositories {
-    maven { url = uri("https://mvn.intellectualsites.com/content/repositories/thirdparty") }
+    maven { url = uri("https://mvn.intellectualsites.com/content/repositories/thirdparty/") }
 }
 
 dependencies {
-    implementation("org.incendo.serverlib:ServerLib:2.2.0")
+    implementation("org.incendo.serverlib:ServerLib:2.2.1")
 }
 ```
 
@@ -19,13 +19,13 @@ dependencies {
 ```xml
 <repository>
  <id>serverlib</id>
- <url>https://mvn.intellectualsites.com/content/repositories/thirdparty</url>
+ <url>https://mvn.intellectualsites.com/content/repositories/thirdparty/</url>
 </repository>
 
 <dependency>  
  <groupId>org.incendo.serverlib</groupId>
  <artifactId>ServerLib</artifactId>
- <version>2.2.0</version>
+ <version>2.2.1</version>
 </dependency>
 ``` 
 
