@@ -15,12 +15,9 @@ import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 
 public final class PackageChecker {
+
     private static final Logger LOGGER = Logger.getLogger(PackageChecker.class.getName());
     private static final String CLASS_EXTENSION = ".class";
-
-    private PackageChecker() {
-    }
-
     private static final Set<String> KNOWN_ENTRIES;
 
     static {
@@ -54,6 +51,9 @@ public final class PackageChecker {
         KNOWN_ENTRIES = builder.build();
     }
 
+    private PackageChecker() {
+    }
+
     private static void handleResource(final ImmutableSet.Builder<String> builder, final String resource) {
         if (resource.endsWith(CLASS_EXTENSION)) { // Class files
             final int slash = resource.lastIndexOf("/");
@@ -76,4 +76,5 @@ public final class PackageChecker {
         }
         return false;
     }
+
 }

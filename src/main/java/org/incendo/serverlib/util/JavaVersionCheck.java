@@ -21,7 +21,7 @@ public class JavaVersionCheck {
         try {
             return Integer.parseInt(version);
         } catch (final NumberFormatException e) {
-             logger.log(Level.WARNING, "Failed to determine Java version; Could not parse {} from {}" + version + javaVersion, e);
+            logger.log(Level.WARNING, "Failed to determine Java version; Could not parse {} from {}" + version + javaVersion, e);
             return -1;
         }
     }

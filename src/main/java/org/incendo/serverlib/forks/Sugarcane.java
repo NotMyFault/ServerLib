@@ -4,16 +4,16 @@ import org.incendo.serverlib.CheckType;
 import org.incendo.serverlib.ClassPresenceCheck;
 
 /**
- * Checks for the presence of Akarin.
+ * Checks for the presence of Sugarcane.
  * <p>
- * https://github.com/Akarin-project/Akarin
+ * https://github.com/SugarcaneMC/Sugarcane
  */
-public final class Akarin extends ClassPresenceCheck {
+public final class Sugarcane extends ClassPresenceCheck {
 
-    private static final String AKARAIN_CONFIG = "io.akarin.server.Config";
+    private static final String SUGARCANE_CONFIG = "org.sugarcanemc.sugarcane.server.SugarcaneConfig";
 
-    public Akarin() {
-        super(CheckType.UNSAFE_FORK, AKARAIN_CONFIG);
+    public Sugarcane() {
+        super(CheckType.UNSAFE_FORK, SUGARCANE_CONFIG);
     }
 
     @Override
