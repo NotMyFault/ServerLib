@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "dev.notmyfault.serverlib"
-version = "2.3.0"
+version = "2.3.1"
 
 var versuffix by extra("SNAPSHOT")
 version = if (!project.hasProperty("release")) {
