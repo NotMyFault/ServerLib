@@ -1,22 +1,37 @@
 plugins {
     java
     `maven-publish`
+    signing
 }
 
-group = "org.incendo.serverlib"
-version = "2.2.2-SNAPSHOT"
+group = "dev.notmyfault.serverlib"
+version = "2.3.0"
 
-configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = sourceCompatibility
+var versuffix by extra("SNAPSHOT")
+version = if (!project.hasProperty("release")) {
+    String.format("%s-%s", project.version, versuffix)
+} else {
+    String.format(project.version as String)
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
+}
+
+tasks.compileJava.configure {
+    options.release.set(8)
+}
+
+configurations.all {
+    attributes.attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 16)
 }
 
 repositories {
-    maven("https://papermc.io/repo/repository/maven-public/")
+    maven { url = uri("https://papermc.io/repo/repository/maven-public/") }
 }
 
 dependencies {
-    compileOnly("com.destroystokyo.paper", "paper-api", "1.16.5-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
 }
 
 java {
@@ -24,66 +39,7 @@ java {
     withJavadocJar()
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
-
-            pom {
-                developers {
-                    developer {
-                        id.set("NotMyFault")
-                        name.set("NotMyFault")
-                    }
-
-                    developer {
-                        id.set("Citymonstret")
-                        name.set("Alexander Söderberg")
-                    }
-                }
-                scm {
-                    url.set("https://github.com/Incendo/ServerLib")
-                    connection.set("scm:https://Incendo@github.com/Incendo/ServerLib.git")
-                    developerConnection.set("scm:git://github.com/Incendo/ServerLib.git")
-                }
-            }
-        }
-    }
-
-    repositories {
-        mavenLocal()
-        val nexusUsername: String? by project
-        val nexusPassword: String? by project
-        if (nexusUsername != null && nexusPassword != null) {
-            maven {
-                val thirdParty =
-                    "https://mvn.intellectualsites.com/content/repositories/thirdparty/"
-                val snapshotRepositoryUrl =
-                    "https://mvn.intellectualsites.com/content/repositories/snapshots/"
-                url = uri(
-                    if (version.toString().endsWith("-SNAPSHOT")) snapshotRepositoryUrl
-                    else thirdParty
-                )
-
-                credentials {
-                    username = nexusUsername
-                    password = nexusPassword
-                }
-            }
-        } else {
-            logger.warn("No nexus repository is added; nexusUsername or nexusPassword is null.")
-        }
-    }
-}
-
-val javadocDir = rootDir.resolve("docs").resolve("javadoc").resolve(project.name)
 tasks {
-    named<Delete>("clean") {
-        doFirst {
-            rootDir.resolve("target").deleteRecursively()
-            javadocDir.deleteRecursively()
-        }
-    }
 
     compileJava {
         options.compilerArgs.addAll(arrayOf("-Xmaxerrs", "1000"))
@@ -102,10 +58,82 @@ tasks {
                 "implSpec:a:Implementation Requirements:",
                 "implNote:a:Implementation Note:"
         )
-        opt.destinationDirectory = javadocDir
-    }
-    named("build") {
-        dependsOn(named("javadoc"))
     }
 }
 
+
+signing {
+    if (!version.toString().endsWith("-SNAPSHOT")) {
+        signing.isRequired
+        sign(publishing.publications)
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+
+            pom {
+
+                name.set(project.name + " " + project.version)
+                description.set("ServerLib is a tool that attempts to detect unsafe implementations of the Bukkit API.")
+                url.set("https://github.com/NotMyFault/ServerLib")
+
+                licenses {
+                    license {
+                        name.set("MIT")
+                        url.set("https://opensource.org/licenses/MIT")
+                        distribution.set("repo")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("NotMyFault")
+                        name.set("NotMyFault")
+                    }
+
+                    developer {
+                        id.set("Citymonstret")
+                        name.set("Alexander Söderberg")
+                    }
+                }
+
+                scm {
+                    url.set("https://github.com/NotMyFault/ServerLib")
+                    connection.set("scm:https://NotMyFault@github.com/NotMyFault/ServerLib.git")
+                    developerConnection.set("scm:git://github.com/NotMyFault/ServerLib.git")
+                }
+
+                issueManagement {
+                    system.set("GitHub")
+                    url.set("https://github.com/NotMyFault/ServerLib/issues")
+                }
+            }
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        val nexusUsername: String? by project
+        val nexusPassword: String? by project
+        if (nexusUsername != null && nexusPassword != null) {
+            maven {
+                val releasesRepositoryUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+                val snapshotRepositoryUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+                url = uri(
+                        if (version.toString().endsWith("-SNAPSHOT")) snapshotRepositoryUrl
+                        else releasesRepositoryUrl
+                )
+
+                credentials {
+                    username = nexusUsername
+                    password = nexusPassword
+                }
+            }
+        } else {
+            logger.warn("No nexus repository is added; nexusUsername or nexusPassword is null.")
+        }
+    }
+}

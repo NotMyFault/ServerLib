@@ -49,16 +49,36 @@ public final class ServerLib {
     }
 
     /**
-     * Checks whether or not the server is running the latest LTS version of Java.
+     * Checks whether or not the server is running Java 16.
+     *
+     * @deprecated Scheduled for removal. Use {@link ServerLib#isJavaSixteen}
      */
+    @Deprecated
     public static void checkJavaLTS() {
         checkJavaSixteen();
     }
 
     /**
-     * Checks whether or not the server is running an unsupported version of Java.
+     * Minecraft 1.17 onwards requires Java 16. This check confirms whether the server is running Java 16 or not.
      */
+    public static void isJavaSixteen() {
+        checkJavaSixteen();
+    }
+
+    /**
+     * Checks whether or not the server is running on Java 15 or lower.
+     *
+     * @deprecated Scheduled for removal. Use {@link ServerLib#isJavaFifteen}
+     */
+    @Deprecated
     public static void checkJavaMinor() {
+        checkJavaFifteen();
+    }
+
+    /**
+     * Checks whether the server is running on Java 15 or lower.
+     */
+    public static void isJavaFifteen() {
         checkJavaFifteen();
     }
 

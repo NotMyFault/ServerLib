@@ -4,28 +4,27 @@ A small library warning about unsafe [PaperMC](https://github.com/PaperMC/Paper)
 
 You can add the library to your project:
 
+Releases are published to the central repository, snapshots are published to S01 OSS Sonatype.
+
+You can find Javadocs [here](https://javadoc.io/doc/dev.notmyfault.serverlib/ServerLib).
+
 **Gradle**
 ```kotlin
 repositories {
-    maven { url = uri("https://mvn.intellectualsites.com/content/repositories/thirdparty/") }
+    mavenCentral()
 }
 
 dependencies {
-    implementation("org.incendo.serverlib:ServerLib:2.2.1")
+    implementation("dev.notmyfault.serverlib:ServerLib:2.3.0")
 }
 ```
 
 **Maven**:
 ```xml
-<repository>
- <id>serverlib</id>
- <url>https://mvn.intellectualsites.com/content/repositories/thirdparty/</url>
-</repository>
-
 <dependency>  
- <groupId>org.incendo.serverlib</groupId>
+ <groupId>dev.notmyfault.serverlib</groupId>
  <artifactId>ServerLib</artifactId>
- <version>2.2.1</version>
+ <version>2.3.0</version>
 </dependency>
 ``` 
 

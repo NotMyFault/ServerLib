@@ -10,7 +10,7 @@ import org.incendo.serverlib.ClassPresenceCheck;
  */
 public final class Sugarcane extends ClassPresenceCheck {
 
-    private static final String SUGARCANE_CONFIG = "org.sugarcanemc.sugarcane.server.SugarcaneConfig";
+    private static final String SUGARCANE_CONFIG = "org.sugarcanemc.sugarcane.config.SugarcaneConfig";
 
     public Sugarcane() {
         super(CheckType.UNSAFE_FORK, SUGARCANE_CONFIG);
