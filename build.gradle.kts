@@ -92,6 +92,7 @@ publishing {
                     developer {
                         id.set("NotMyFault")
                         name.set("NotMyFault")
+                        email.set("contact@notmyfault.dev")
                     }
 
                     developer {
