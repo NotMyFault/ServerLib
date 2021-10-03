@@ -1,18 +1,15 @@
+import java.net.URI
+
 plugins {
     java
     `maven-publish`
     signing
+
+    alias(libs.plugins.nexus)
 }
 
 group = "dev.notmyfault.serverlib"
-version = "2.3.1"
-
-var versuffix by extra("SNAPSHOT")
-version = if (!project.hasProperty("release")) {
-    String.format("%s-%s", project.version, versuffix)
-} else {
-    String.format(project.version as String)
-}
+version = "2.3.1-SNAPSHOT"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(16))
@@ -31,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
+    compileOnly(libs.paper)
 }
 
 java {
@@ -58,12 +55,16 @@ tasks {
                 "implSpec:a:Implementation Requirements:",
                 "implNote:a:Implementation Note:"
         )
+        opt.addBooleanOption("html5", true)
     }
 }
 
 
 signing {
     if (!version.toString().endsWith("-SNAPSHOT")) {
+        val signingKey: String? by project
+        val signingPassword: String? by project
+        useInMemoryPgpKeys(signingKey, signingPassword)
         signing.isRequired
         sign(publishing.publications)
     }
@@ -114,27 +115,13 @@ publishing {
             }
         }
     }
+}
 
+nexusPublishing {
     repositories {
-        mavenLocal()
-        val nexusUsername: String? by project
-        val nexusPassword: String? by project
-        if (nexusUsername != null && nexusPassword != null) {
-            maven {
-                val releasesRepositoryUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-                val snapshotRepositoryUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-                url = uri(
-                        if (version.toString().endsWith("-SNAPSHOT")) snapshotRepositoryUrl
-                        else releasesRepositoryUrl
-                )
-
-                credentials {
-                    username = nexusUsername
-                    password = nexusPassword
-                }
-            }
-        } else {
-            logger.warn("No nexus repository is added; nexusUsername or nexusPassword is null.")
+        sonatype {
+            nexusUrl.set(URI.create("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(URI.create("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
         }
     }
 }
