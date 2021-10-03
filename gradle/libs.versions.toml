@@ -1,0 +1,12 @@
+[versions]
+# Minecraft
+paper = "1.17.1-R0.1-SNAPSHOT"
+
+# Gradle plugins
+nexus = "1.1.0"
+
+[libraries]
+paper = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
+
+[plugins]
+nexus = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexus" }
