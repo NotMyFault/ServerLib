@@ -4,7 +4,7 @@ A small library warning about unsafe [PaperMC](https://github.com/PaperMC/Paper)
 
 You can add the library to your project:
 
-Releases are published to the central repository, snapshots are published to S01 OSS Sonatype.
+Releases are published to the central repository, snapshots are published to [S01 OSS Sonatype](https://s01.oss.sonatype.org/content/repositories/snapshots/).
 
 You can find Javadocs [here](https://javadoc.io/doc/dev.notmyfault.serverlib/ServerLib).
 
