@@ -1,5 +1,7 @@
 name: Automatic Rebase
-on: [pull_request]
+on:
+  issue_comment:
+    types: [created]
 
 jobs:
   rebase:
@@ -10,7 +12,7 @@ jobs:
       - name: Checkout the latest code
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REBASE_TOKEN }}
           fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
       - name: Automatic Rebase
         uses: cirrus-actions/rebase@1.4
