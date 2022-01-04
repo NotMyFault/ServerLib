@@ -1,4 +1,4 @@
-# ServerLib
+# ServerLib - cool
 
 A small library warning about unsafe [PaperMC](https://github.com/PaperMC/Paper) or [Tuinity](https://github.com/Spottedleaf/Tuinity) forks.
 
