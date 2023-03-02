@@ -8,6 +8,8 @@ Releases are published to the central repository, snapshots are published to [S0
 
 You can find Javadocs [here](https://javadoc.io/doc/dev.notmyfault.serverlib/ServerLib).
 
+Take a look at the release tab for versions available.
+
 **Gradle**
 ```kotlin
 repositories {
@@ -15,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.notmyfault.serverlib:ServerLib:2.3.1")
+    implementation("dev.notmyfault.serverlib:ServerLib:VERSION")
 }
 ```
 
@@ -24,7 +26,7 @@ dependencies {
 <dependency>  
  <groupId>dev.notmyfault.serverlib</groupId>
  <artifactId>ServerLib</artifactId>
- <version>2.3.1</version>
+ <version>VERSION</version>
 </dependency>
 ``` 
 
