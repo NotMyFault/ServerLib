@@ -1,20 +1,81 @@
 categories:
+  - title: '💥 Breaking changes'
+    label: 'Breaking changes'
+  - title: '🚀 Major features'
+    label: 'Major feature'
+  - title: '🐞 Major bug fixes'
+    label: 'Major bug fix'
   - title: '🐛 Fixes'
     label: 'Bugfix'
   - title: '✨ Features'
     label: 'Feature'
   - title: '🧭 Changes'
     label: 'Enhancement'
+  - title: '✅ Chore'
+    labels:
+      - 'Refactor'
+      - 'chore'
+  - title: '⚙️ Changes for plugin developers'
+    label: 'Developer'
+  - title: '📝 Documentation updates'
+    label: 'documentation'
+  - title: '🚦 Tests'
+    label: 'tests'    
   - title: '📦 Dependency updates'
     labels:
       - 'Renovate'
       - 'Dependency updates'
+      - 'dependencies'
+    collapse-after: 10 
+exclude-labels:
+  - skip-changelog
+  - invalid
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&@'
-exclude-contributors:
-  - 'renovate'
-  - 'renovate-bot'
 template: |
-  ## ServerLib v
-
   $CHANGES
+tag-template: $NEXT_PATCH_VERSION
+version-template: $MAJOR.$MINOR.$PATCH
+name-template: $NEXT_PATCH_VERSION
+  
+autolabeler:
+  - label: 'Bugfix'
+    branch:
+      - '/fix\/.+/'
+    title:
+      - '/fix/i'
+  - label: 'Feature'
+    branch:
+      - '/feature\/.+/'
+    title:
+      - '/feature/i'
+  - label: 'Feature'
+    branch:
+      - '/feat\/.+/'
+    title:
+      - '/feat/i'
+  - label: 'chore'
+    branch:
+      - '/chore\/.+/'
+    title:
+      - '/chore/i'
+  - label: 'chore'
+    branch:
+      - '/refactor\/.+/'
+    title:
+      - '/refactor/i'
+  - label: 'tests'
+    branch:
+      - '/tests\/.+/'
+    title:
+      - '/tests/i'
+  - label: 'documentation'
+    branch:
+      - '/docs\/.+/'
+    title:
+      - '/docs/i'
+  - label: 'documentation'
+    branch:
+      - '/docs\/.+/'
+    title:
+      - '/documentation/i'
