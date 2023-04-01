@@ -3,7 +3,7 @@
 paper = "1.18.1-R0.1-SNAPSHOT"
 
 # Gradle plugins
-nexus = "1.2.0"
+nexus = "1.3.0"
 
 [libraries]
 paper = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
