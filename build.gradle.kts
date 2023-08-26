@@ -24,7 +24,7 @@ configurations.all {
 }
 
 repositories {
-    maven { url = uri("https://papermc.io/repo/repository/maven-public/") }
+    maven { url = uri("https://repo.papermc.io/repository/maven-public/") }
 }
 
 dependencies {
@@ -84,7 +84,7 @@ publishing {
                 licenses {
                     license {
                         name.set("MIT")
-                        url.set("https://opensource.org/licenses/MIT")
+                        url.set("https://opensource.org/licenses/mit")
                         distribution.set("repo")
                     }
                 }
@@ -94,6 +94,8 @@ publishing {
                         id.set("NotMyFault")
                         name.set("NotMyFault")
                         email.set("contact(at)notmyfault.dev")
+                        organization.set("IntellectualSites")
+                        organizationUrl.set("https://github.com/IntellectualSites/")
                     }
 
                     developer {
@@ -104,8 +106,9 @@ publishing {
 
                 scm {
                     url.set("https://github.com/NotMyFault/ServerLib")
-                    connection.set("scm:https://NotMyFault@github.com/NotMyFault/ServerLib.git")
-                    developerConnection.set("scm:git://github.com/NotMyFault/ServerLib.git")
+                    connection.set("scm:git:https://github.com/NotMyFault/ServerLib.git")
+                    developerConnection.set("scm:git:git@github.com:NotMyFault/ServerLib.git")
+                    tag.set(project.version.toString())
                 }
 
                 issueManagement {
