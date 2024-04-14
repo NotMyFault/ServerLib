@@ -65,14 +65,15 @@ tasks {
     }
 }
 
-
-signing {
-    if (!version.toString().endsWith("-SNAPSHOT")) {
-        val signingKey: String? by project
-        val signingPassword: String? by project
-        useInMemoryPgpKeys(signingKey, signingPassword)
-        signing.isRequired
-        sign(publishing.publications)
+if (!project.hasProperty("skip.signing")) {
+    signing {
+        if (!version.toString().endsWith("-SNAPSHOT")) {
+            val signingKey: String? by project
+            val signingPassword: String? by project
+            useInMemoryPgpKeys(signingKey, signingPassword)
+            signing.isRequired
+            sign(publishing.publications)
+        }
     }
 }
 
