@@ -56,6 +56,12 @@ tasks {
                 "implNote:a:Implementation Note:"
         )
         opt.addBooleanOption("html5", true)
+        opt.noTimestamp()
+    }
+
+    withType<AbstractArchiveTask>().configureEach {
+        isPreserveFileTimestamps = false
+        isReproducibleFileOrder = true
     }
 }
 
