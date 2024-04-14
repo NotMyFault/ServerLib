@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "dev.notmyfault.serverlib"
-version = "2.3.5-SNAPSHOT"
+version = "2.3.5"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
