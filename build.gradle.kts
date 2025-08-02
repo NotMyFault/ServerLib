@@ -1,4 +1,3 @@
-import com.vanniktech.maven.publish.SonatypeHost
 import java.net.URI
 
 plugins {
@@ -98,6 +97,6 @@ mavenPublishing {
             url.set("https://github.com/NotMyFault/ServerLib/issues")
         }
 
-        publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+        publishToMavenCentral()
     }
 }
